@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <a th:insert="/fragments/header :: header"></a>
+</head>
+<body>
+<div th:insert="/fragments/navbar :: navbar"></div>
+<!-- partial -->
+<div class="container-fluid page-body-wrapper proBanner-padding-top">
+    <div th:insert="/fragments/sidebar :: sidebar"></div>
+    <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Dashboard
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Add project</h4>
+                            <p class="card-description"> Please fill in the details </p>
+                            <form action="#" th:action="@{/project/add}" th:object="${project}" method="post" class="forms-sample">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tech">Technology</label>
+                                    <input type="text" class="form-control" th:field="*{tech}" id="tech" placeholder="Technology sought">
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <input type="text" class="form-control" th:field="*{date}" id="date" placeholder="Date of enquiry">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client">Client</label>
+                                    <input type="text" class="form-control" th:field="*{client}" id="client" placeholder="Client name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" th:field="*{description}" id="description" placeholder="Project description">
+                                </div>
+                                <button type="submit" class="btn btn-gradient-primary me-2">Add project</button>
+                                <button class="btn btn-light">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © recrutio 2022</span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<div th:insert="/fragments/footer :: footer"></div>
+</body>
+</html>

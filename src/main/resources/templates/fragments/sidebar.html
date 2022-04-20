@@ -1,0 +1,52 @@
+<div th:fragment="sidebar">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <span class="menu-title">Dashboard</span>
+                    <i class="mdi mdi-home menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#menu1" aria-expanded="false" aria-controls="menu1">
+                    <span class="menu-title">Projects</span>
+                    <i class="menu-arrow"></i>
+                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                </a>
+                <div class="collapse" id="menu1">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="/project/list">All projects</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/project/add">Add a project</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#menu2" aria-expanded="false" aria-controls="menu2">
+                    <span class="menu-title">Candidates</span>
+                    <i class="menu-arrow"></i>
+                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                </a>
+                <div class="collapse" id="menu2">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="/candidate/list">All candidates</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/candidate/add">Add a candidate</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#menu3" aria-expanded="false" aria-controls="menu3">
+                    <span class="menu-title">Feedbacks</span>
+                    <i class="menu-arrow"></i>
+                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                </a>
+                <div class="collapse" id="menu3">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>

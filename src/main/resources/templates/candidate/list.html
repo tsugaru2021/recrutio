@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <a th:insert="/fragments/header :: header"></a>
+</head>
+<body>
+<div th:insert="/fragments/navbar :: navbar"></div>
+<!-- partial -->
+<div class="container-fluid page-body-wrapper proBanner-padding-top">
+    <div th:insert="/fragments/sidebar :: sidebar"></div>
+    <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Dashboard
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">List of candidates</h4>
+                            <div class="table-responsive">
+                                <h4 th:if="${#lists.isEmpty(candidates)}">No candidates yet!</h4>
+                                <div th:unless="${#lists.isEmpty(candidates)}">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th> First name </th>
+                                            <th> Last name </th>
+                                            <th> Phone </th>
+                                            <th> Email </th>
+                                            <th> GIT link </th>
+                                            <th> LinkedIn link </th>
+                                            <th> CV link </th>
+                                            <th> Edit </th>
+                                            <th> Delete </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="candidate : ${candidates}">
+                                            <td th:text="${candidate.firstName}"></td>
+                                            <td th:text="${candidate.lastName}"></td>
+                                            <td th:text="${candidate.phone}"></td>
+                                            <td th:text="${candidate.email}"></td>
+                                            <td th:text="${candidate.gitLink}"></td>
+                                            <td th:text="${candidate.linkedinLink}"></td>
+                                            <td th:text="${candidate.cvLink}"></td>
+                                            <td><a th:href="@{/candidate/edit/{id}(id=${candidate.id})}">Edit</a></td>
+                                            <td><a th:href="@{/candidate/delete/{id}(id=${candidate.id})}">Delete</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © recrutio 2022</span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<div th:insert="/fragments/footer :: footer"></div>
+</body>
+</html>

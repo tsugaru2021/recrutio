@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <a th:insert="/fragments/header :: header"></a>
+</head>
+<body>
+<div th:insert="/fragments/navbar :: navbar"></div>
+<!-- partial -->
+<div class="container-fluid page-body-wrapper proBanner-padding-top">
+    <div th:insert="/fragments/sidebar :: sidebar"></div>
+    <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Dashboard
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Add candidate</h4>
+                            <p class="card-description"> Please fill in the details </p>
+                            <form action="#" th:action="@{/candidate/add}" th:object="${candidate}" method="post" class="forms-sample">
+                                <div class="form-group">
+                                    <label for="firstName">First name</label>
+                                    <input type="text" class="form-control" th:field="*{firstName}" id="firstName" placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last name</label>
+                                    <input type="text" class="form-control" th:field="*{lastName}" id="lastName" placeholder="Last name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" th:field="*{phone}" id="phone" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gitLink">GIT Link</label>
+                                    <input type="text" class="form-control" th:field="*{gitLink}" id="gitLink" placeholder="Link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedinLink">LinkedIn Link</label>
+                                    <input type="text" class="form-control" th:field="*{linkedinLink}" id="linkedinLink" placeholder="Link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvLink">CV Link</label>
+                                    <input type="text" class="form-control" th:field="*{cvLink}" id="cvLink" placeholder="Link">
+                                </div>
+                                <div class="form-group">
+                                    <label for="projects">Project</label>
+                                    <select th:field="*{project}" id="projects" class="form-control">
+                                        <option th:each="project: ${projects}"
+                                                th:value="${project.id}"
+                                                th:text="${project.name} + ' ( ' + ${project.tech} + ' )'"/>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-gradient-primary me-2">Add candidate</button>
+                                <button class="btn btn-light">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="container-fluid d-flex justify-content-between">
+                    <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © recrutio 2022</span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<div th:insert="/fragments/footer :: footer"></div>
+</body>
+</html>
